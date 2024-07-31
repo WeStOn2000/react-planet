@@ -1,3 +1,7 @@
+import { StrictMode, useState } from 'react'
+import { createRoot } from 'react-dom/client'
+
+
 const planets = [
   {
     id: '1',
@@ -70,10 +74,41 @@ const planets = [
 // =============================================================
 
 // 1: Create a 'Planet' component that renders a planet card
+const Planet = () => {
+   return(
+    <div class="card">
+    <div>
+      <img src="img/mercury.jpg" alt="Mercury" />
+    </div>
+    <h2>Mercury</h2>
+    <p>Mercury is the closest planet to the Sun. Due to its proximity, it's not easily seen except during twilight...</p>
+    <h3>Planet Profile</h3>
+    <ul>
+      <li><strong>Diameter:</strong> 3,031.67 mi</li>
+      <li><strong>Moons:</strong> none</li>
+    </ul>
+  </div>
 
+   )
+
+
+}
 
 // 2: Create a container component that iterates over the planets array 
 //    and renders a 'Planet' component for each object in the array 
-
+const PlanetList = ()=> {
+   return(
+    <div className='container'>
+    <Planet />
+    </div>
+   )
+}
 
 // 3: Render the container component to the DOM
+
+const root = createRoot( document.getElementById('root'));
+root.render(
+<StrictMode>
+  <PlanetList />
+</StrictMode>
+)
